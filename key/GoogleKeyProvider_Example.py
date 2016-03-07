@@ -1,6 +1,6 @@
 #this is a reference File
 #To use this file fill the following authentication variables and
-#remove the '_' character from folder name, 'key'
+#remove the '_Example' from file name, it is necessary to use this tool
 
 googleMapsKey = 'Your_google_maps_key'
 googleStreetViewKey = 'Your_google_street_view_key'

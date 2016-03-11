@@ -18,6 +18,11 @@ def replyTweet(t_id, status):
     api.update_status(status, t_id)
     print ('Posted: ' + time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime()))
 
+def replyTweetWithMedia(file, status, t_id ):
+    status = status + 'at ' + time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime())
+    api.update_with_media(file, status, t_id)
+    print ('Posted with media: ' + file + ' at: ' + time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime()))
+
 def postGeoTweet(self, status, lat, lon):
     self.api.update_status()
 
@@ -37,14 +42,13 @@ def replyMapLocation(t_id, status, location, zoom):
     lon = location[0]
     lat = location[1]
     getTempMap(lat,lon,zoom)
-    post = api.update_with_media(tempMap_file, status, t_id) #, lat, lon)
+    api.update_with_media(tempSc_File, status, t_id)
     print ('Posted at %s,%s - file: %s' % (str(lat), str(lon), tempMap_file) )
 
 def replySceneLocation(t_id,status,location):
     lon = location[0]
     lat = location[1]
     location = [lat, lon]
-
     gsv.getScene(tempSc_File,location)
     post = api.update_with_media(tempSc_File, status, t_id)
     print ('Posted scene at %s,%s - file: %s' % (str(lat), str(lon), tempSc_File) )
